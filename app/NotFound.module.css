@@ -1,0 +1,12 @@
+.title {
+  margin: 3rem 1rem 1rem;
+  color: #212529;
+  font-size: clamp(2rem, 5vw, 3rem);
+  text-align: center;
+}
+
+.description {
+  margin: 1rem;
+  color: #495057;
+  text-align: center;
+}
