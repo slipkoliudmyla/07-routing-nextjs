@@ -8,7 +8,7 @@ import {
   keepPreviousData,
 } from '@tanstack/react-query';
 import { useDebouncedCallback } from 'use-debounce';
-import { createNote, deleteNote, fetchNotes } from '@/lib/api';
+import { createNote, deleteNote, fetchNotes } from '@/lib/api/notes';
 import { noteKey, notesKey } from '@/lib/queries';
 import type { NewNote, NoteTag } from '@/types/note';
 import css from './Notes.module.css';

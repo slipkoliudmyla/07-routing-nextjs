@@ -1,4 +1,4 @@
-import { deleteNote, fetchNoteById } from '@/lib/api';
+import { deleteNote, fetchNoteById } from '@/lib/api/notes';
 import { getNoteHubClient, noteHubErrorResponse } from '@/lib/api/server';
 
 type RouteContext = { params: Promise<{ id: string }> };

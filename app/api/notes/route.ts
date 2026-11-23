@@ -1,4 +1,4 @@
-import { createNote, fetchNotes } from '@/lib/api';
+import { createNote, fetchNotes } from '@/lib/api/notes';
 import { getNoteHubClient, noteHubErrorResponse } from '@/lib/api/server';
 import { isNoteTag } from '@/types/note';
 

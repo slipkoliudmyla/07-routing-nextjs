@@ -12,7 +12,13 @@ export const metadata: Metadata = {
   icons: { icon: '/favicon.svg' },
 };
 
-export default function RootLayout({ children }: { children: ReactNode }) {
+export default function RootLayout({
+  children,
+  modal,
+}: {
+  children: ReactNode;
+  modal: ReactNode;
+}) {
   return (
     <html lang="en">
       <body>
@@ -20,6 +26,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           <Header />
           <div className="siteContent">{children}</div>
           <Footer />
+          {modal}
         </TanStackProvider>
       </body>
     </html>

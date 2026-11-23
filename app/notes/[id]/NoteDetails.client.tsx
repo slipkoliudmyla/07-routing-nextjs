@@ -2,10 +2,10 @@
 
 import { useQuery } from '@tanstack/react-query';
 import { useParams } from 'next/navigation';
-import { fetchNoteById } from '@/lib/api';
+import { fetchNoteById } from '@/lib/api/notes';
 import { noteKey } from '@/lib/queries';
 import detailsCss from './NoteDetails.module.css';
-import previewCss from './@modal/(.)[id]/NotePreview.module.css';
+import previewCss from '@/app/@modal/(.)notes/[id]/NotePreview.module.css';
 
 const dateFormat = new Intl.DateTimeFormat('en-GB', {
   dateStyle: 'medium',

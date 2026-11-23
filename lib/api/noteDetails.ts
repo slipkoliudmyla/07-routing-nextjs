@@ -2,7 +2,7 @@ import 'server-only';
 import { QueryClient } from '@tanstack/react-query';
 import { isAxiosError } from 'axios';
 import { notFound } from 'next/navigation';
-import { fetchNoteById } from '@/lib/api';
+import { fetchNoteById } from './notes';
 import { noteKey } from '@/lib/queries';
 import { getNoteHubClient } from './server';
 
