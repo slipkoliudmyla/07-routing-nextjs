@@ -5,7 +5,6 @@ import {
 } from '@tanstack/react-query';
 import { notFound } from 'next/navigation';
 import { fetchNotes } from '@/lib/api';
-import { getNoteHubClient } from '@/lib/api/server';
 import { notesKey } from '@/lib/queries';
 import { isNoteTag } from '@/types/note';
 import NotesClient from './Notes.client';
@@ -27,8 +26,7 @@ export default async function FilterPage({ params }: FilterPageProps) {
 
   await queryClient.prefetchQuery({
     queryKey,
-    queryFn: ({ signal }) =>
-      fetchNotes({ search: '', page: 1, tag, signal }, getNoteHubClient()),
+    queryFn: () => fetchNotes({ search: '', page: 1, tag }),
   });
 
   if (queryClient.getQueryState(queryKey)?.status === 'error') {

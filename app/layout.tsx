@@ -9,7 +9,6 @@ import './globals.css';
 export const metadata: Metadata = {
   title: 'NoteHub',
   description: 'Search, organize, and manage your notes.',
-  icons: { icon: '/favicon.svg' },
 };
 
 export default function RootLayout({

@@ -1,7 +1,7 @@
 import 'server-only';
-import axios from 'axios';
+import axios, { type AxiosInstance, type AxiosResponse } from 'axios';
 
-export function getNoteHubClient() {
+function getNoteHubClient() {
   const token =
     process.env.NOTEHUB_TOKEN ?? process.env.NEXT_PUBLIC_NOTEHUB_TOKEN;
   if (!token) throw new Error('NoteHub API credentials are missing.');
@@ -14,12 +14,21 @@ export function getNoteHubClient() {
   });
 }
 
-export function noteHubErrorResponse(error: unknown) {
-  const upstreamStatus = axios.isAxiosError(error) && error.response?.status;
-  const status =
-    upstreamStatus && upstreamStatus >= 400 && upstreamStatus < 500
-      ? upstreamStatus
-      : 502;
+export class NoteHubError extends Error {
+  constructor(readonly status?: number) {
+    super('The NoteHub API could not complete the request.');
+  }
+}
 
-  return Response.json({ message: 'NoteHub API request failed.' }, { status });
+export async function requestNoteHub<Data>(
+  request: (client: AxiosInstance) => Promise<AxiosResponse<Data>>,
+): Promise<Data> {
+  try {
+    const { data } = await request(getNoteHubClient());
+    return data;
+  } catch (error) {
+    throw new NoteHubError(
+      axios.isAxiosError(error) ? error.response?.status : undefined,
+    );
+  }
 }
