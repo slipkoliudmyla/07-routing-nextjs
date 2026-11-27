@@ -4,11 +4,11 @@ import {
   QueryClient,
 } from '@tanstack/react-query';
 import { notFound } from 'next/navigation';
-import { fetchNotes } from '@/lib/api/notes';
+import { fetchNotes } from '@/lib/api';
 import { getNoteHubClient } from '@/lib/api/server';
 import { notesKey } from '@/lib/queries';
 import { isNoteTag } from '@/types/note';
-import NotesClient from '../../Notes.client';
+import NotesClient from './Notes.client';
 
 interface FilterPageProps {
   params: Promise<{ slug: string[] }>;

@@ -8,10 +8,10 @@ import {
   keepPreviousData,
 } from '@tanstack/react-query';
 import { useDebouncedCallback } from 'use-debounce';
-import { createNote, deleteNote, fetchNotes } from '@/lib/api/notes';
+import { createNote, deleteNote, fetchNotes } from '@/lib/api';
 import { noteKey, notesKey } from '@/lib/queries';
 import type { NewNote, NoteTag } from '@/types/note';
-import css from './Notes.module.css';
+import css from './NotesPage.module.css';
 import NoteList from '@/components/NoteList/NoteList';
 import Pagination from '@/components/Pagination/Pagination';
 import Modal from '@/components/Modal/Modal';
